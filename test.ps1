@@ -22,20 +22,20 @@ if ($choice -eq "1") {
     Write-Host "Press any key to continue..." -ForegroundColor Yellow
     $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
     Clear-Host
-    Invoke-WebRequest -Uri "https://example.com/encryptor.ps1" | Invoke-Expression
+    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/MysteryCattics/powershell-cloud-script/refs/heads/main/encryptor.ps1" | Invoke-Expression
 
 } elseif ($choice -eq "2") {
     Write-Host "You chose FFmpeg CLI." -ForegroundColor Green
     Write-Host "Press any key to continue..." -ForegroundColor Yellow
     $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
     Clear-Host
-    Invoke-WebRequest -Uri "https://example.com/ffmpegConverter.ps1" | Invoke-Expression
+    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/MysteryCattics/powershell-cloud-script/refs/heads/main/ffmpegConverter.ps1" | Invoke-Expression
 } elseif ($choice -eq "3") {
     Write-Host "You chose СОВА НА СКАКАЛКЕ. Прыг-скок!" -ForegroundColor Cyan
     Write-Host "Press any key to continue..." -ForegroundColor Yellow
     $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
     Clear-Host
-    Invoke-WebRequest -Uri "https://example.com/sova.ps1" | Invoke-Expression
+    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/MysteryCattics/powershell-cloud-script/refs/heads/main/sova.ps1" | Invoke-Expression
 } else {
     Write-Host "Invalid choice. Please run the script again and select a valid option." -ForegroundColor Red
 }

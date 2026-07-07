@@ -20,11 +20,8 @@ if ($convertChoice -eq "1") {
     $outputPath = (Read-Host "Enter the output path for the converted file").Trim('"')
     $format = (Read-Host "Enter the desired output format (e.g., mp4, mp3, avi)").Trim()
 
-    # Construct the FFmpeg command
-    $ffmpegCommand = "ffmpeg -i `"$inputPath`" `"$outputPath.$format`""
-
     Write-Host "`nExecuting: $ffmpegCommand" -ForegroundColor Cyan
-    Invoke-Expression $ffmpegCommand
+    & ffmpeg -i $inputPath "$outputPath.$format"
 
     Write-Host "`nConversion completed. Output file: $outputPath.$format" -ForegroundColor Green
 }
@@ -39,44 +36,45 @@ elseif ($convertChoice -eq "2") {
     if ($installChoice -eq "1") {
         Write-Host "Installing FFmpeg using WinGet..." -ForegroundColor Cyan
         winget install ffmpeg
-        Invoke-WebRequest -Uri "https://example.com/ffmpegConverter.ps1" | Invoke-Expression
+        & $PSCommandPath
     }
     elseif ($installChoice -eq "2") {
         Write-Host "Installing FFmpeg using Chocolatey..." -ForegroundColor Cyan
         choco install ffmpeg
-        Invoke-WebRequest -Uri "https://example.com/ffmpegConverter.ps1" | Invoke-Expression
+        & $PSCommandPath
     }
     elseif ($installChoice -eq "3") {
-        if (Test-Path "$env:USERPROFILE\TempDLFFMP" -eq $false) {
+        $insDir = Read-Host "Enter the directory where you want to install FFmpeg (Default: C:\FFmpeg)"
+
+        if ([string]::IsNullOrWhiteSpace($insDir)) {
+            $insDir = "C:\FFmpeg"
+        }
+        if (-not (Test-Path "$insDir\TempDLFFMP")) {
             
-            $insDir = Read-Host "Enter the directory where you want to install FFmpeg (Default: C:\FFmpeg)"
+            
 
-            if ([string]::IsNullOrWhiteSpace($insDir)) {
-                $insDir = "C:\FFmpeg"
-            }
-
-            New-Item -Path "$env:USERPROFILE" -Name "TempDLFFMP" -ItemType Directory
+            New-Item -Path "$insDir" -Name "TempDLFFMP" -ItemType Directory
             $tempDir = "$insDir\TempDLFFMP"
             Write-Host "Downloading FFmpeg from Mediafire..." -ForegroundColor Cyan
             Invoke-WebRequest -Uri "https://download1582.mediafire.com/aoxygn2sazagy_WWDUeWyWMZ73ZVZyLDTC-xcE2-kUYFto9FBB3U0mhsCIZUBM0o1x972AVPII2TI3qMileMCKWES9cjGmYkPBvcL6TxNXmI4Ic7QhwcwdaPd5qlKhBCeGrGsrFoJ07QCQlIYsignDvjcsNQH3PWYGumWVRvFK_3ezc/3gqej7x61d5v19n/ffmpeg-2026-07-06-git-c6498178bb-full_build.zip" -OutFile "$tempDir\ffmpeg.zip"
             Expand-Archive -Path "$tempDir\ffmpeg.zip" -DestinationPath "$tempDir"
             Set-Location "$tempDir\ffmpeg-2026-07-06-git-c6498178bb-full_build\bin"
-            Copy-Item -Path * -Destination "$insDir" -Force
+            Copy-Item "$tempDir\ffmpeg-2026-07-06-git-c6498178bb-full_build\bin\*" $insDir -Force
             Remove-Item -Path "$tempDir" -Recurse -Force
             Write-Host "FFmpeg installed successfully!" -ForegroundColor Green
             Write-Host "Press any key to restart the script... (or Ctrl+C to exit)" -ForegroundColor Yellow
             $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
-            Invoke-WebRequest -Uri "https://example.com/ffmpegConverter.ps1" | Invoke-Expression
+            & $PSCommandPath
             }
-        elseif (Test-Path "$env:USERPROFILE\TempDLFFMP") {
+        elseif (Test-Path "$tempDir") {
             Write-Host "Temporary directory already exists. Do you want to delete it?" -ForegroundColor Red
             $deleteChoice = Read-Host "Enter 'y' to delete or 'n' to cancel"
             if ($deleteChoice -eq "y") {
-                Remove-Item -Path "$env:USERPROFILE\TempDLFFMP" -Recurse -Force
+                Remove-Item -Path "$tempDir" -Recurse -Force
                 Write-Host "Temporary directory deleted." -ForegroundColor Yellow
                 Write-Host "Press any key to restart the script... (or Ctrl+C to exit)" -ForegroundColor Yellow
                 $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
-                Invoke-WebRequest -Uri "https://example.com/ffmpegConverter.ps1" | Invoke-Expression
+                & $PSCommandPath
             }
         }
 
@@ -85,7 +83,7 @@ elseif ($convertChoice -eq "2") {
     }
     elseif ($installChoice -eq "4") {
         Write-Host "Returning to the main menu..." -ForegroundColor Yellow
-        Invoke-WebRequest -Uri "https://example.com/test.ps1" | Invoke-Expression
+        Invoke-WebRequest -Uri "https://raw.githubusercontent.com/MysteryCattics/powershell-cloud-script/refs/heads/main/test.ps1" | Invoke-Expression
     }
 }
 else {
