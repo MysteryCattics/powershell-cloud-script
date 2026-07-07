@@ -44,11 +44,12 @@ else {
 
         if ($item -is [System.IO.FileInfo]) {
             $item.Encrypt()
+            Write-Host "Successfully decrypted: $path" -ForegroundColor Green
         }
         else {
             Write-Host "This is not a file."
         }
-        Write-Host "Successfully decrypted: $path" -ForegroundColor Green
+        
     } else {
         Write-Host "Path not found!" -ForegroundColor Red
     }
