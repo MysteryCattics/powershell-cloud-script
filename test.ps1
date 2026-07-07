@@ -13,7 +13,7 @@ Write-Host "2. FFmpeg CLI" -ForegroundColor White
 Write-Host "3. СОВА НА СКАКАЛКЕ" -ForegroundColor Red  # Сову можно и выделить :)
 Write-Host "(Ctrl+C to exit)`n" -ForegroundColor DarkGray
 
-# Сам ввод делаем чистым Read-Host
+# utf8 pls
 $choice = Read-Host "Enter your choice (1-3)"
 
 # Логика условий

@@ -1,4 +1,4 @@
-Clear-Host
+﻿Clear-Host
 
 Write-Host "Warning!" -ForegroundColor Red
 Write-Host "This script will encrypt or decrypt files/folders using Windows built-in encryption and will not affect opening then." -ForegroundColor Yellow
@@ -32,6 +32,22 @@ if ($itemtype -eq "Encrypt") {
         }
         else {
             Write-Host "This is not a file."
+            Write-Host "Press 1 to return to the main menu or any 2 to exit."
+            while ($true) {
+                Write-Host "Enter your choice (1 or 2):" -NoNewline
+                $choice = Read-Host
+                if ($choice -eq "1") {
+                    # Call the script again to return to the main menu
+                    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/MysteryCattics/powershell-cloud-script/refs/heads/main/test.ps1" | Invoke-Expression
+                    break
+                } elseif ($choice -eq "2") {
+                    Write-Host "Exiting the script." -ForegroundColor Yellow
+                    exit
+                } else {
+                    Write-Host "Invalid choice. Please enter 1 or 2." -ForegroundColor Red
+
+                }
+            }
         }
         
     } else {

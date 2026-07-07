@@ -1,4 +1,4 @@
-Clear-Host
+﻿Clear-Host
 
 Write-Host "Warning!" -ForegroundColor Red
 Write-Host "This script will convert video/audio files using FFmpeg. Make sure you have FFmpeg installed and added to your system PATH." -ForegroundColor Yellow
