@@ -28,11 +28,12 @@ if ($itemtype -eq "Encrypt") {
 
         if ($item -is [System.IO.FileInfo]) {
             $item.Encrypt()
+            Write-Host "Successfully encrypted: $path" -ForegroundColor Green
         }
         else {
             Write-Host "This is not a file."
         }
-        Write-Host "Successfully encrypted: $path" -ForegroundColor Green
+        
     } else {
         Write-Host "Path not found!" -ForegroundColor Red
     }
