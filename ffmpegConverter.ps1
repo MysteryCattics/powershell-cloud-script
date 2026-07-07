@@ -57,8 +57,8 @@ elseif ($convertChoice -eq "2") {
 
             New-Item -Path "$env:USERPROFILE" -Name "TempDLFFMP" -ItemType Directory
             $tempDir = "$insDir\TempDLFFMP"
-            Write-Host "Downloading FFmpeg from Gyan.dev..." -ForegroundColor Cyan
-            Invoke-WebRequest -Uri "https://download1655.mediafire.com/g98xjtu2newg4RdV212i78MLeCFHyOQB9EbDAAentAfkbkQSiYQQiEoEMmaM2azrAAnUAvtIQv0xjywegzdva1tEycDSGZHNIs1b3j1drcYyuu-eE1rfdAfR9Tl9BycpxTefsUXJQ8eNjUIyvhzrdWyLlsoBcdXvwgYyHVxhGw42MAE/ikws8ibq1gkqti5/ffmpeg-2026-07-06-git-c6498178bb-full_build.zip" -OutFile "$tempDir\ffmpeg.zip"
+            Write-Host "Downloading FFmpeg from Mediafire..." -ForegroundColor Cyan
+            Invoke-WebRequest -Uri "https://download1582.mediafire.com/aoxygn2sazagy_WWDUeWyWMZ73ZVZyLDTC-xcE2-kUYFto9FBB3U0mhsCIZUBM0o1x972AVPII2TI3qMileMCKWES9cjGmYkPBvcL6TxNXmI4Ic7QhwcwdaPd5qlKhBCeGrGsrFoJ07QCQlIYsignDvjcsNQH3PWYGumWVRvFK_3ezc/3gqej7x61d5v19n/ffmpeg-2026-07-06-git-c6498178bb-full_build.zip" -OutFile "$tempDir\ffmpeg.zip"
             Expand-Archive -Path "$tempDir\ffmpeg.zip" -DestinationPath "$tempDir"
             Set-Location "$tempDir\ffmpeg-2026-07-06-git-c6498178bb-full_build\bin"
             Copy-Item -Path * -Destination "$insDir" -Force
