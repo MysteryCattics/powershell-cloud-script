@@ -8,5 +8,5 @@
 | Download FFmpeg | - [x] |
 | Download the scipt | - [ ] |
 | Execute directly from the insternet | - [x] |
-| Take the disk space | [ ] |
+| Take the disk space | - [ ] |
 | Install Linux mint (unfortunately) | - [ ] |
