@@ -5,5 +5,5 @@
 | Download FFmpeg | :heavy_check_mark: |
 | Download the script | :x: |
 | Execute directly from the internet | :heavy_check_mark: |
-| Take the disk space | :x: |
+| Take up disk space | :x: |
 | Install Linux mint (unfortunately) | :x: |
