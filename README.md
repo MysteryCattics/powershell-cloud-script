@@ -1,6 +1,6 @@
 # Powershell Cloud Script
 
-| table | Test |
+| Feature | Status |
 |------------|------|
 | Download FFmpeg | :heavy_check_mark: |
 | Download the scipt | :x: |
