@@ -5,7 +5,7 @@
 
 | table | Test |
 |------------|------|
-| Download FFmpeg | :+1: |
+| Download FFmpeg | :+2: |
 | Download the scipt | :-1: |
 | Execute directly from the internet | yes |
 | Take the disk space | no |
