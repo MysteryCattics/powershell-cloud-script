@@ -5,8 +5,8 @@
 
 | table | Test |
 |------------|------|
-| Download FFmpeg | - [x] |
-| Download the scipt | - [ ] |
-| Execute directly from the insternet | - [x] |
-| Take the disk space | - [ ] |
-| Install Linux mint (unfortunately) | - [ ] |
+| Download FFmpeg | yes |
+| Download the scipt | no |
+| Execute directly from the internet | yes |
+| Take the disk space | no |
+| Install Linux mint (unfortunately) | no |
