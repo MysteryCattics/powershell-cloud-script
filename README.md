@@ -1,7 +1,4 @@
-#Powershell Cloud Script
-
-- [ ] hahahahaha checkbox
-- [x] hahahaha checkbox too
+# Powershell Cloud Script
 
 | table | Test |
 |------------|------|
