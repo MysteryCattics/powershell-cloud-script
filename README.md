@@ -1,9 +1,9 @@
-# Powershell Cloud Script
+# PowerShell Cloud Script
 
 | Feature | Status |
-|------------|------|
+|---------|--------|
 | Download FFmpeg | :heavy_check_mark: |
 | Download the script | :x: |
-| Execute directly from the internet | :heavy_check_mark: |
+| Execute directly from the Internet | :heavy_check_mark: |
 | Take up disk space | :x: |
-| Install Linux mint (unfortunately) | :x: |
+| Install Linux Mint (unfortunately) | :x: |
